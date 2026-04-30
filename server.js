@@ -25,7 +25,7 @@ app.post('/api/generate', async (req, res) => {
     if (!prompt) return res.status(400).json({ error: 'No prompt provided' });
     const message = await anthropic.messages.create({
       model: 'claude-sonnet-4-6',
-      max_tokens: 2000,
+      max_tokens: 8000,
       messages: [{ role: 'user', content: prompt }],
     });
     res.json({ content: message.content[0].text });
